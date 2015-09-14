@@ -10,6 +10,7 @@ before_install:
     - gem install ./bin/yoox-calabash-0.9.4.gem
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
+    - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["T1b","T2b","T3","T4"]}]}'
     - wget http://www.google.com
 # Let's try to build...
 script: ./gradlew clean assembleDebug
