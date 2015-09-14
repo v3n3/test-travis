@@ -1,11 +1,4 @@
 apply plugin: 'com.android.application'
-//Put Fabric plugin after Android plugin
-apply plugin: 'io.fabric'
-
-repositories {
-    jcenter()
-    maven { url 'https://maven.fabric.io/public' }
-}
 
 android {
     compileSdkVersion 23

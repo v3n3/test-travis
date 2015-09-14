@@ -7,5 +7,7 @@ android:
     - extra-android-m2repository
 before_install:
     - chmod +x ./gradlew
+after_script:
+    - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
 # Let's try to build...
 script: ./gradlew clean assembleDebug
