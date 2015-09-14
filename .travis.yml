@@ -8,4 +8,4 @@ android:
 before_install:
     - chmod +x ./gradlew
 # Let's try to build...
-script: ./gradlew clean assembleRelease
+script: ./gradlew clean assembleRelease crashlyticsUploadDistributionRelease
