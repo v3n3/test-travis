@@ -6,11 +6,14 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
 before_install:
+    - rvm use 2.0.0
     - chmod +x ./gradlew
     - gem install ./bin/yoox-calabash-0.9.4.gem
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
+    - yoox-calabash  -l
     - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["T1b","T2b","T3","T4"]}]}'
+    - zip tests.zip ./features/*
     - wget http://www.google.com
 # Let's try to build...
 script: ./gradlew clean assembleDebug
