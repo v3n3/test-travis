@@ -6,7 +6,7 @@ android:
     - extra-google-m2repository
     - extra-android-m2repository
 before_install:
-    - rvm use 2.0.0
+    - sudo rvm use 2.0.0
     - chmod +x ./gradlew
     - gem install ./bin/yoox-calabash-0.9.4.gem
 after_script:
