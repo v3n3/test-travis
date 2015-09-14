@@ -11,7 +11,7 @@ before_install:
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
     - yoox-calabash  -l
-    - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["T1b","T2b","T3","T4"]}]}'
+    - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["t4"]}]}'
     - zip tests.zip ./features/*
     - wget http://www.google.com
 # Let's try to build...
