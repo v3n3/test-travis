@@ -9,6 +9,6 @@ before_install:
     - chmod +x ./gradlew
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
-    - wget http://www.yoox.com
+    - wget http://www.google.com
 # Let's try to build...
 script: ./gradlew clean assembleDebug
