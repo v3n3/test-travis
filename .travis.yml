@@ -8,7 +8,7 @@ android:
 before_install:
     - chmod +x ./gradlew
     - gem install ./bin/yoox-calabash-0.9.4.gem
-	- pip install boto3
+    - pip install boto3
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
     - yoox-calabash  -l
