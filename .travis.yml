@@ -15,6 +15,6 @@ after_script:
     - yoox-calabash  -l
     - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["t4"]}]}'
     - zip tests.zip ./features/*
-    - ./bin/devicefarm/application.py android tests.zip ./app/build/outputs/apk/app-debug.apk
+    - sudo ./bin/devicefarm/application.py android tests.zip ./app/build/outputs/apk/app-debug.apk
 # Let's try to build...
 script: ./gradlew clean assembleDebug
