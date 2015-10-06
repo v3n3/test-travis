@@ -8,11 +8,12 @@ android:
 before_install:
     - chmod +x ./gradlew
     - gem install ./bin/yoox-calabash-0.9.4.gem
+	- pip install boto3
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
     - yoox-calabash  -l
     - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["t4"]}]}'
     - zip tests.zip ./features/*
-    - wget http://www.google.com
+    - ./bin/devicefarm/application.py android tests.zip ./app/build/outputs/apk/app-debug.apk
 # Let's try to build...
 script: ./gradlew clean assembleDebug
