@@ -7,14 +7,13 @@ android:
     - extra-android-m2repository
 before_install:
     - chmod +x ./gradlew
-    - chmod +x ./bin/devicefarm/application.py
     - gem install ./bin/yoox-calabash-0.9.4.gem
-    - sudo pip install boto3
+    - npm install awsdevicefarmcli
 after_script:
     - jarsigner -verify -verbose ./app/build/outputs/apk/app-debug.apk
     - yoox-calabash  -l
     - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["t4"]}]}'
     - zip tests.zip ./features/*
-    - sudo ./bin/devicefarm/application.py android tests.zip ./app/build/outputs/apk/app-debug.apk
+    - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId AKIAIAFP4BVNZWHBBUZA --AWSSecretAccessKey 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 --AWSRegion us-west-2 --AppApk ./app/build/outputs/apk/app-debug.apk --TestsZip test.zip
 # Let's try to build...
 script: ./gradlew clean assembleDebug
