@@ -14,6 +14,6 @@ after_script:
     - yoox-calabash  -l
     - yoox-calabash -c -i '{"platform":"android","config":[{"iso":"IT","api":"Production","tests":["t4"]}]}'
     - zip tests.zip ./features/*
-    - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId ${AWSAccessKeyId} --AWSSecretAccessKey ${AWSSecretAccessKey} --AWSRegion us-west-2 --AppApk ./app/build/outputs/apk/app-debug.apk --TestsZip ./tests.zip
+    - node ./node_modules/awsdevicefarmcli/scheduleRun.js --AWSAccessKeyId ${AWSAccessKeyId} --AWSSecretAccessKey ${AWSSecretAccessKey} --AWSRegion us-west-2 --AppApkPath ./app/build/outputs/apk/app-debug.apk --TestsZipPath ./tests.zip
 # Let's try to build...
 script: ./gradlew clean assembleDebug
